@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
+const path = require("path");
 
-app.get("/", (req, res) => res.render('public\index.html'));
-
+// app.get("/", (req, res) => res.render('public/index.html'));
+app.use(express.static(path.join(__dirname, "public")));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
-
+/*
 const html = `
 <!DOCTYPE html>
 <html>
@@ -56,4 +57,4 @@ const html = `
     </section>
   </body>
 </html>
-`
+`*/
